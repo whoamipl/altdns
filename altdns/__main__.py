@@ -61,7 +61,7 @@ def insert_number_suffix_subdomains(args, alternation_words):
                 ext = tldextract.extract(line.strip())
                 current_sub = ext.subdomain.split(".")
                 for word in range(0, 10):
-                    for index in enumerate(current_sub):
+                    for index, _ in enumerate(current_sub):
                         #add word-NUM
                         original_sub = current_sub[index]
                         current_sub[index] = current_sub[index] + "-" + str(word)
@@ -90,7 +90,7 @@ def insert_dash_subdomains(args, alteration_words):
                 ext = tldextract.extract(line.strip())
                 current_sub = ext.subdomain.split(".")
                 for word in alteration_words:
-                    for index in enumerate(current_sub):
+                    for index, _ in enumerate(current_sub):
                         original_sub = current_sub[index]
                         current_sub[index] = current_sub[
                             index] + "-" + word.strip()
@@ -121,7 +121,7 @@ def join_words_subdomains(args, alteration_words):
                 ext = tldextract.extract(line.strip())
                 current_sub = ext.subdomain.split(".")
                 for word in alteration_words:
-                    for index in enumerate(current_sub):
+                    for index, _ in enumerate(current_sub):
                         original_sub = current_sub[index]
                         current_sub[index] = current_sub[index] + word.strip()
                         # join the list to make into actual subdomain (aa.bb.cc)
@@ -314,7 +314,7 @@ def main():
       remove_duplicates(args)
 
     if args.resolve:
-        global progress = 0
+        global progress
         global linecount
         global lock
         global starttime
