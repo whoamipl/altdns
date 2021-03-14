@@ -2,4 +2,4 @@ tldextract
 argparse
 termcolor
 dnspython
-request>2.25.1
+requests>2.25.1
